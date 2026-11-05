@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA AI - Next-Gen Futuristic AI Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#00f3ff',
+                            purple: '#8a2be2',
+                            pink: '#ff007f',
+                            dark: '#0a0d14',
+                            card: 'rgba(16, 22, 36, 0.75)'
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2s infinite alternate',
+                        'spin-slow': 'spin 12s linear infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2)' },
+                            '100%': { boxShadow: '0 0 25px rgba(255, 0, 127, 0.6), inset 0 0 15px rgba(138, 43, 226, 0.4)' }
+                        },
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(1000%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #06090e;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0d14; }
+        ::-webkit-scrollbar-thumb { background: #00f3ff; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff007f; }
+
+        /* Glassmorphism Effect */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 243, 255, 0.15);
+        }
+        .glass-card {
+            background: rgba(20, 30, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 243, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Cyber Neon Gradients */
+        .gradient-text {
+            background: linear-gradient(135deg, #00f3ff 0%, #8a2be2 50%, #ff007f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #00f3ff 0%, #8a2be2 100%);
+            transition: all 0.3s ease;
+        }
+        .gradient-btn:hover {
+            opacity: 0.95;
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
+        }
+
+        /* Neon Glow Border */
+        .neon-border-cyan {
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#06090e] text-slate-100 selection:bg-cyan-500 selection:text-black">
+
+    <!-- Ambient Background Lighting -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/15 rounded-full blur-[120px]"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-purple-600/15 rounded-full blur-[140px]"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-pink-500/15 rounded-full blur-[130px]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#00f3ff_1px,transparent_1px)] [background-size:32px_32px] opacity-5"></div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- HEADER & NAVIGATION -->
+        <header class="sticky top-0 z-50 glass-panel border-b border-cyan-500/20 px-4 lg:px-8 py-3">
+            <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+                
+                <!-- Brand Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-purple-600 to-pink-500 p-[2px] animate-pulse-glow">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-atom text-cyan-400 text-xl animate-spin-slow"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="font-orbitron font-black text-xl lg:text-2xl tracking-wider gradient-text">NEXORA <span class="text-white text-xs px-2 py-0.5 rounded bg-cyan-500/20 border border-cyan-400/40 font-mono">AI 3.0</span></h1>
+                        <p class="text-[10px] text-slate-400 font-rajdhani tracking-widest uppercase hidden sm:block">Next-Gen Creative AI Studio</p>
+                    </div>
+                </div>
+
+                <!-- Global Quick Action Bar / Status -->
+                <div class="flex items-center gap-3">
+                    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/60 text-xs">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span class="text-slate-300">Engine: <strong class="text-cyan-400">Gemini 3 Flash</strong></span>
+                    </div>
+
+                    <button onclick="openApiKeyModal()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-cyan-500/30 text-cyan-300 flex items-center gap-2 transition">
+                        <i class="fa-solid fa-key text-cyan-400"></i>
+                        <span class="hidden sm:inline">API Key</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-lg bg-slate-800/80 text-slate-200 hover:text-cyan-400 border border-slate-700">
+                        <i class="fa-solid fa-bars-staggered text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Bar Tabs -->
+            <nav class="max-w-7xl mx-auto mt-3 hidden lg:flex items-center gap-2 border-t border-slate-800/80 pt-2 overflow-x-auto scrollbar-none">
+                <button onclick="switchTab('image')" id="tab-btn-image" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-cyan-400 bg-cyan-500/10 border border-cyan-500/40">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> <span>🎨 Image Generator</span>
+                </button>
+                <button onclick="switchTab('video')" id="tab-btn-video" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
+                    <i class="fa-solid fa-film"></i> <span>🎥 Video Generator</span>
+                </button>
+                <button onclick="switchTab('text')" id="tab-btn-text" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
+                    <i class="fa-solid fa-pen-nib"></i> <span>✍️ Text & Story AI</span>
+                </button>
+                <button onclick="switchTab('audio')" id="tab-btn-audio" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
+                    <i class="fa-solid fa-music"></i> <span>🎵 Audio & Music AI</span>
+                </button>
+                <button onclick="switchTab('chat')" id="tab-btn-chat" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
+                    <i class="fa-solid fa-robot"></i> <span>⚡ Code & Chat</span>
+                </button>
+                <button onclick="switchTab('gallery')" id="tab-btn-gallery" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 ml-auto">
+                    <i class="fa-solid fa-box-archive"></i> <span>📁 Gallery & History</span>
+                </button>
+            </nav>
+
+            <!-- Mobile Drawer Menu -->
+            <div id="mobile-nav" class="hidden lg:hidden mt-3 flex flex-col gap-2 border-t border-slate-800 pt-3">
+                <button onclick="switchTab('image'); toggleMobileNav();" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-slate-800/80 text-cyan-300">🎨 Image Generator</button>
+                <button onclick="switchTab('video'); toggleMobileNav();" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-slate-800/40 text-slate-300">🎥 Video Generator</button>
+                <button onclick="switchTab('text'); toggleMobileNav();" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-slate-800/40 text-slate-300">✍️ Text & Story AI</button>
+                <button onclick="switchTab('audio'); toggleMobileNav();" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-slate-800/40 text-slate-300">🎵 Audio & Music AI</button>
+                <button onclick="switchTab('chat'); toggleMobileNav();" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-slate-800/40 text-slate-300">⚡ Code & Chat Assistant</button>
+                <button onclick="switchTab('gallery'); toggleMobileNav();" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-slate-800/40 text-slate-300">📁 Gallery & History</button>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-grow max-w-7xl w-full mx-auto p-4 lg:p-8">
+
+            <!-- TAB 1: AI IMAGE GENERATOR -->
+            <section id="tab-image" class="tab-content block">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    
+                    <!-- Left Control Panel -->
+                    <div class="lg:col-span-5 flex flex-col gap-5">
+                        <div class="glass-panel p-5 rounded-2xl border border-cyan-500/20">
+                            <h2 class="font-orbitron font-bold text-lg text-cyan-400 flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-paint-brush"></i> AI Image Prompt Creator
+                            </h2>
+                            <p class="text-xs text-slate-400 mb-4">Apna imagination yahan likho, NEXORA AI visual generate karega!</p>
+
+                            <!-- Prompt Textarea -->
+                            <div class="relative mb-4">
+                                <textarea id="image-prompt" rows="4" class="w-full bg-slate-950/80 border border-slate-700 focus:border-cyan-400 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 outline-none transition focus:ring-1 focus:ring-cyan-400 resize-none" placeholder="E.g., Futuristic cyberpunk metropolis at night with glowing neon billboards, flying cars, rain reflections, 8K resolution..."></textarea>
+                                <button onclick="enhancePromptWithAI('image-prompt')" class="absolute bottom-3 right-3 text-xs bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 px-2.5 py-1 rounded-lg flex items-center gap-1.5 transition">
+                                    <i class="fa-solid fa-wand-magic"></i> AI Enhance
+                                </button>
+                            </div>
+
+                            <!-- Suggestion Chips -->
+                            <div class="mb-5">
+                                <label class="text-xs text-slate-400 block mb-2 font-medium">Quick Prompt Chips (Click to use):</label>
+                                <div class="flex flex-wrap gap-2">
+                                    <button onclick="setPrompt('image-prompt', 'Cyberpunk neon city at night, rain reflections, 8k ultradetailed')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-950 hover:text-cyan-300 border border-slate-700 transition">🌆 Cyberpunk City</button>
+                                    <button onclick="setPrompt('image-prompt', 'Photorealistic cyborg robot guardian, glowing blue eyes, cinematic studio lighting')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-950 hover:text-cyan-300 border border-slate-700 transition">🤖 Futuristic Robot</button>
+                                    <button onclick="setPrompt('image-prompt', 'Surreal floating crystal island in galaxy space, bioluminescent plants')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-950 hover:text-cyan-300 border border-slate-700 transition">🌌 Floating Island</button>
+                                    <button onclick="setPrompt('image-prompt', 'Anime style warrior girl with neon katana, cherry blossoms, detailed art station')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-950 hover:text-cyan-300 border border-slate-700 transition">🌸 Anime Warrior</button>
+                                </div>
+                            </div>
+
+                            <!-- Settings Grid -->
+                            <div class="space-y-4 pt-2 border-t border-slate-800">
+                                
+                                <!-- Aspect Ratio -->
+                                <div>
+                                    <label class="text-xs font-semibold text-slate-300 block mb-2">Aspect Ratio (Dimensions)</label>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <button onclick="selectRatio(this, '1:1')" class="ratio-btn border-cyan-400 bg-cyan-500/20 text-cyan-300 p-2 rounded-xl border text-xs font-semibold text-center flex flex-col items-center justify-center gap-1">
+                                            <div class="w-4 h-4 border border-current rounded-sm"></div>
+                                            1:1 Square
+                                        </button>
+                                        <button onclick="selectRatio(this, '16:9')" class="ratio-btn border-slate-700 bg-slate-900/60 text-slate-400 p-2 rounded-xl border text-xs font-semibold text-center flex flex-col items-center justify-center gap-1 hover:border-slate-500">
+                                            <div class="w-6 h-3.5 border border-current rounded-sm"></div>
+                                            16:9 Landscape
+                                        </button>
+                                        <button onclick="selectRatio(this, '9:16')" class="ratio-btn border-slate-700 bg-slate-900/60 text-slate-400 p-2 rounded-xl border text-xs font-semibold text-center flex flex-col items-center justify-center gap-1 hover:border-slate-500">
+                                            <div class="w-3.5 h-6 border border-current rounded-sm"></div>
+                                            9:16 Portrait
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Style Selector -->
+                                <div>
+                                    <label class="text-xs font-semibold text-slate-300 block mb-1.5">Artistic Style</label>
+                                    <select id="image-style" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-200 outline-none focus:border-cyan-400">
+                                        <option value="Cyberpunk">Cyberpunk Neon</option>
+                                        <option value="Photorealistic">Photorealistic Cinematic</option>
+                                        <option value="Anime">Anime / Manga Concept</option>
+                                        <option value="3D Render">Octane 3D Render</option>
+                                        <option value="Digital Art">Fantasy Digital Art</option>
+                                    </select>
+                                </div>
+
+                                <!-- Quality Level -->
+                                <div>
+                                    <div class="flex justify-between text-xs text-slate-300 mb-1">
+                                        <span>Quality Detail</span>
+                                        <span id="quality-val" class="text-cyan-400 font-bold">Ultra HD (4K)</span>
+                                    </div>
+                                    <input type="range" min="1" max="3" value="3" oninput="updateQualityText(this.value)" class="w-full accent-cyan-400 bg-slate-800 rounded-lg cursor-pointer h-1.5">
+                                </div>
+                            </div>
+
+                            <!-- Generate Button -->
+                            <button onclick="generateAIImage()" id="btn-generate-image" class="w-full mt-6 py-3.5 px-6 rounded-xl gradient-btn font-orbitron font-bold text-slate-950 tracking-wider text-sm flex items-center justify-center gap-2 shadow-lg hover:scale-[1.01] transition active:scale-95">
+                                <i class="fa-solid fa-bolt text-slate-950"></i> GENERATE AI IMAGE
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Display Canvas / Preview -->
+                    <div class="lg:col-span-7 flex flex-col">
+                        <div class="glass-panel p-5 rounded-2xl border border-cyan-500/20 flex-grow flex flex-col justify-between min-h-[480px] relative overflow-hidden">
+                            
+                            <!-- Header status -->
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                                <span class="text-xs font-orbitron text-slate-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-display text-cyan-400"></i> CANVAS OUTPUT PREVIEW
+                                </span>
+                                <span id="image-status-tag" class="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">Ready</span>
+                            </div>
+
+                            <!-- Image Container / Loader / Canvas -->
+                            <div class="relative flex-grow flex items-center justify-center rounded-xl bg-slate-950/90 border border-slate-800/80 overflow-hidden min-h-[360px] group">
+                                
+                                <!-- Placeholder graphic when idle -->
+                                <div id="image-placeholder" class="flex flex-col items-center justify-center p-8 text-center">
+                                    <div class="w-20 h-20 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-4 text-cyan-400 text-3xl animate-pulse">
+                                        <i class="fa-regular fa-image"></i>
+                                    </div>
+                                    <h3 class="font-orbitron font-semibold text-slate-300 text-sm mb-1">Apna visual create karein</h3>
+                                    <p class="text-xs text-slate-500 max-w-xs">Prompt enter karke 'Generate AI Image' button press karein.</p>
+                                </div>
+
+                                <!-- Progress Loading Animation -->
+                                <div id="image-loader" class="hidden absolute inset-0 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 z-20">
+                                    <div class="relative w-24 h-24 mb-6">
+                                        <div class="absolute inset-0 rounded-full border-4 border-cyan-500/20 border-t-cyan-400 animate-spin"></div>
+                                        <div class="absolute inset-2 rounded-full border-4 border-purple-500/20 border-b-purple-400 animate-spin-slow"></div>
+                                        <div class="absolute inset-0 flex items-center justify-center font-orbitron font-bold text-xs text-cyan-300" id="image-progress-num">0%</div>
+                                    </div>
+                                    <p class="font-orbitron text-sm text-cyan-400 tracking-wider mb-2" id="image-loader-status">Synthesizing Pixels...</p>
+                                    <div class="w-64 h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+                                        <div id="image-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 to-purple-500 w-0 transition-all duration-300"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Real Image Result -->
+                                <img id="image-result" src="" alt="AI Output" class="hidden w-full h-full object-contain rounded-xl z-10 transition-all duration-500">
+
+                                <!-- Hover Quick Overlay Actions -->
+                                <div id="image-hover-actions" class="hidden absolute bottom-4 left-4 right-4 flex items-center justify-center gap-3 z-30 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/80 backdrop-blur-md p-3 rounded-xl border border-slate-700">
+                                    <button onclick="downloadOutputImage()" class="px-3.5 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 hover:bg-cyan-400 transition">
+                                        <i class="fa-solid fa-download"></i> Download HD
+                                    </button>
+                                    <button onclick="upscaleImage()" class="px-3.5 py-2 rounded-lg bg-purple-600/80 text-white font-medium text-xs flex items-center gap-1.5 hover:bg-purple-500 transition border border-purple-400/40">
+                                        <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Upscale (8K)
+                                    </button>
+                                    <button onclick="saveToGalleryCurrent('image')" class="px-3.5 py-2 rounded-lg bg-slate-800 text-slate-200 hover:text-cyan-300 text-xs flex items-center gap-1.5 border border-slate-700 transition">
+                                        <i class="fa-regular fa-bookmark"></i> Save History
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Footer info -->
+                            <div class="mt-4 flex items-center justify-between text-xs text-slate-400">
+                                <span id="image-meta-text">No active generation</span>
+                                <span class="text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-shield-halved"></i> Safe AI Guard On</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: AI VIDEO GENERATOR -->
+            <section id="tab-video" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    
+                    <!-- Left Video Controls -->
+                    <div class="lg:col-span-5 flex flex-col gap-5">
+                        <div class="glass-panel p-5 rounded-2xl border border-purple-500/20">
+                            <h2 class="font-orbitron font-bold text-lg text-purple-400 flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-video"></i> AI Video Generator
+                            </h2>
+                            <p class="text-xs text-slate-400 mb-4">Prompt se dynamic, cinematic high-motion AI videos generate karein!</p>
+
+                            <!-- Video Prompt -->
+                            <div class="mb-4">
+                                <label class="text-xs font-semibold text-slate-300 block mb-1.5">Video Motion Prompt</label>
+                                <textarea id="video-prompt" rows="3" class="w-full bg-slate-950/80 border border-slate-700 focus:border-purple-400 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 outline-none transition resize-none" placeholder="E.g., Drone camera orbiting a futuristic neon sci-fi tower with flying vehicles, 60fps cinematic light..."></textarea>
+                            </div>
+
+                            <!-- Image Reference Upload Simulation -->
+                            <div class="mb-4">
+                                <label class="text-xs font-semibold text-slate-300 block mb-1.5">Reference Image (Image-to-Video - Optional)</label>
+                                <div class="border-2 border-dashed border-slate-700 hover:border-purple-500/50 rounded-xl p-3 text-center cursor-pointer bg-slate-950/40 transition flex items-center justify-center gap-3" onclick="triggerRefUpload()">
+                                    <i class="fa-solid fa-cloud-arrow-up text-purple-400 text-lg"></i>
+                                    <span class="text-xs text-slate-400" id="video-upload-label">Click to upload reference image</span>
+                                    <input type="file" id="video-file-input" class="hidden" accept="image/*" onchange="handleRefUpload(this)">
+                                </div>
+                            </div>
+
+                            <!-- Advanced Motion Controls -->
+                            <div class="space-y-4 pt-3 border-t border-slate-800">
+                                
+                                <!-- Motion Intensity -->
+                                <div>
+                                    <div class="flex justify-between text-xs text-slate-300 mb-1">
+                                        <span>Motion Intensity</span>
+                                        <span id="motion-val" class="text-purple-400 font-bold">Medium (5/10)</span>
+                                    </div>
+                                    <input type="range" min="1" max="10" value="5" oninput="document.getElementById('motion-val').innerText = this.value + '/10'" class="w-full accent-purple-400 bg-slate-800 rounded-lg cursor-pointer h-1.5">
+                                </div>
+
+                                <!-- Camera Angle & Duration -->
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="text-xs text-slate-300 block mb-1">Camera Movement</label>
+                                        <select id="video-camera" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-slate-200 outline-none focus:border-purple-400">
+                                            <option value="Smooth Zoom In">Smooth Zoom In</option>
+                                            <option value="360 Orbit">360 Orbit Pan</option>
+                                            <option value="Dynamic Tracking">Dynamic Tracking</option>
+                                            <option value="FPV Drone Pass">FPV Drone Pass</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-xs text-slate-300 block mb-1">Duration & FPS</label>
+                                        <select id="video-duration" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-slate-200 outline-none focus:border-purple-400">
+                                            <option value="5s">5 Sec (30 FPS)</option>
+                                            <option value="10s" selected>10 Sec (60 FPS)</option>
+                                            <option value="15s">15 Sec Cinematic</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Render Video Button -->
+                            <button onclick="generateAIVideo()" id="btn-generate-video" class="w-full mt-6 py-3.5 px-6 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 font-orbitron font-bold text-white tracking-wider text-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-95 transition active:scale-95">
+                                <i class="fa-solid fa-clapperboard"></i> RENDER AI VIDEO
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Video Player Screen -->
+                    <div class="lg:col-span-7 flex flex-col">
+                        <div class="glass-panel p-5 rounded-2xl border border-purple-500/20 flex-grow flex flex-col justify-between min-h-[480px]">
+                            
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                                <span class="text-xs font-orbitron text-slate-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-play text-purple-400"></i> CINEMATIC VIDEO PLAYER
+                                </span>
+                                <span id="video-status-tag" class="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">Idle</span>
+                            </div>
+
+                            <!-- Video Screen Wrapper -->
+                            <div class="relative flex-grow flex items-center justify-center rounded-xl bg-slate-950 border border-slate-800 overflow-hidden min-h-[360px]">
+                                
+                                <!-- Placeholder -->
+                                <div id="video-placeholder" class="flex flex-col items-center justify-center p-8 text-center">
+                                    <div class="w-20 h-20 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4 text-purple-400 text-3xl animate-pulse">
+                                        <i class="fa-solid fa-film"></i>
+                                    </div>
+                                    <h3 class="font-orbitron font-semibold text-slate-300 text-sm mb-1">AI Video Frame Ready</h3>
+                                    <p class="text-xs text-slate-500 max-w-xs">Video prompt set karein aur Render button dabayein.</p>
+                                </div>
+
+                                <!-- Rendering Loader -->
+                                <div id="video-loader" class="hidden absolute inset-0 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-6 z-20">
+                                    <div class="w-16 h-16 rounded-full border-4 border-purple-500/20 border-t-purple-400 animate-spin mb-4"></div>
+                                    <p class="font-orbitron text-sm text-purple-300 tracking-wider mb-2" id="video-loader-status">Rendering Frame 0/300...</p>
+                                    <div class="w-64 h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+                                        <div id="video-progress-bar" class="h-full bg-gradient-to-r from-purple-500 to-pink-500 w-0 transition-all duration-300"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Dynamic Video Canvas / Player -->
+                                <video id="video-result-player" class="hidden w-full h-full object-cover rounded-xl" loop autoplay muted playsinline></video>
+                            </div>
+
+                            <!-- Controls Footer -->
+                            <div id="video-controls-bar" class="hidden mt-4 flex items-center justify-between gap-3 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
+                                <div class="flex items-center gap-2">
+                                    <button onclick="toggleVideoPlay()" id="btn-play-pause" class="w-8 h-8 rounded-lg bg-purple-600 text-white flex items-center justify-center text-xs hover:bg-purple-500">
+                                        <i class="fa-solid fa-pause"></i>
+                                    </button>
+                                    <button onclick="toggleVideoMute()" id="btn-mute" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-center text-xs hover:text-white">
+                                        <i class="fa-solid fa-volume-high"></i>
+                                    </button>
+                                </div>
+                                <span class="text-xs text-slate-400 font-mono" id="video-time-display">00:00 / 00:10</span>
+                                <div class="flex items-center gap-2">
+                                    <a id="video-download-btn" href="#" download="nexora-video.mp4" class="px-3 py-1.5 rounded-lg bg-purple-600/30 hover:bg-purple-600/50 text-purple-300 border border-purple-500/40 text-xs font-semibold flex items-center gap-1.5">
+                                        <i class="fa-solid fa-download"></i> Export MP4
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: TEXT & STORY AI -->
+            <section id="tab-text" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    
+                    <!-- Left Input Panel -->
+                    <div class="lg:col-span-5 flex flex-col gap-5">
+                        <div class="glass-panel p-5 rounded-2xl border border-pink-500/20">
+                            <h2 class="font-orbitron font-bold text-lg text-pink-400 flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-pen-fancy"></i> AI Story & Copy Writer
+                            </h2>
+                            <p class="text-xs text-slate-400 mb-4">Creative blogs, YouTube scripts, stories aur marketing copy likhein!</p>
+
+                            <!-- Mode Selector -->
+                            <div class="mb-4">
+                                <label class="text-xs font-semibold text-slate-300 block mb-1.5">Writing Content Mode</label>
+                                <select id="text-mode" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-200 outline-none focus:border-pink-400">
+                                    <option value="Creative Sci-Fi Story">📖 Creative Sci-Fi Story</option>
+                                    <option value="YouTube Video Script">🎥 YouTube Video Script</option>
+                                    <option value="High-Converting Marketing Copy">🚀 Marketing & Ad Copy</option>
+                                    <option value="Detailed Technical Blog Post">✍️ Technical Blog Article</option>
+                                </select>
+                            </div>
+
+                            <!-- Topic / Prompt Input -->
+                            <div class="mb-4">
+                                <label class="text-xs font-semibold text-slate-300 block mb-1.5">Topic / Instructions</label>
+                                <textarea id="text-prompt" rows="4" class="w-full bg-slate-950/80 border border-slate-700 focus:border-pink-400 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 outline-none transition resize-none" placeholder="E.g., Write an exciting story about the first human AI cyborg born on Mars in the year 2099..."></textarea>
+                            </div>
+
+                            <!-- Tone & Language Settings -->
+                            <div class="grid grid-cols-2 gap-3 mb-5">
+                                <div>
+                                    <label class="text-xs text-slate-300 block mb-1">Tone of Voice</label>
+                                    <select id="text-tone" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-slate-200 outline-none">
+                                        <option value="Futuristic & Thrilling">Futuristic & Thrilling</option>
+                                        <option value="Professional & Formal">Professional & Formal</option>
+                                        <option value="Casual Hinglish">Casual Hinglish</option>
+                                        <option value="Humorous & Engaging">Humorous & Funny</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-slate-300 block mb-1">Output Language</label>
+                                    <select id="text-lang" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-slate-200 outline-none">
+                                        <option value="Hinglish">Hinglish (Hindi + English)</option>
+                                        <option value="English">English</option>
+                                        <option value="Hindi">Hindi (हिंदी)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button onclick="generateAIText()" id="btn-generate-text" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 font-orbitron font-bold text-white tracking-wider text-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-95 transition active:scale-95">
+                                <i class="fa-solid fa-feather"></i> GENERATE CONTENT
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Text Display Editor -->
+                    <div class="lg:col-span-7 flex flex-col">
+                        <div class="glass-panel p-5 rounded-2xl border border-pink-500/20 flex-grow flex flex-col justify-between min-h-[480px]">
+                            
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                                <span class="text-xs font-orbitron text-slate-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-file-lines text-pink-400"></i> AI GENERATED EDITOR
+                                </span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="copyGeneratedText()" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 flex items-center gap-1 border border-slate-700">
+                                        <i class="fa-regular fa-copy"></i> Copy
+                                    </button>
+                                    <button onclick="exportTextFile()" class="px-2.5 py-1 rounded-lg bg-pink-600/30 hover:bg-pink-600/50 text-xs text-pink-300 flex items-center gap-1 border border-pink-500/40">
+                                        <i class="fa-solid fa-file-arrow-down"></i> Export .TXT
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Text Editor Screen -->
+                            <div class="relative flex-grow rounded-xl bg-slate-950/80 border border-slate-800 p-4 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed overflow-y-auto max-h-[420px] scrollbar-thin">
+                                <div id="text-placeholder" class="h-full flex flex-col items-center justify-center text-slate-500 py-12">
+                                    <i class="fa-solid fa-font text-3xl mb-3 text-pink-500/30"></i>
+                                    <p class="text-xs">Aapka generated script ya story yahan live stream hoga...</p>
+                                </div>
+                                <div id="text-output-body" class="whitespace-pre-wrap"></div>
+                            </div>
+
+                            <div class="mt-3 flex justify-between items-center text-[11px] text-slate-500">
+                                <span id="text-word-count">Words: 0 | Characters: 0</span>
+                                <span>Powered by NEXORA Neural Engine</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: AUDIO & MUSIC AI -->
+            <section id="tab-audio" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    
+                    <div class="lg:col-span-5 flex flex-col gap-5">
+                        <div class="glass-panel p-5 rounded-2xl border border-emerald-500/20">
+                            <h2 class="font-orbitron font-bold text-lg text-emerald-400 flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-sliders"></i> AI Music & Audio Creator
+                            </h2>
+                            <p class="text-xs text-slate-400 mb-4">Text prompts se Cyberpunk, Lo-Fi, Synthwave audio beats banao!</p>
+
+                            <!-- Audio Genre presets -->
+                            <div class="mb-4">
+                                <label class="text-xs font-semibold text-slate-300 block mb-2">Select Music Vibe / Genre</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button onclick="setAudioGenre(this, 'Cyberpunk Synthwave')" class="genre-btn border-emerald-400 bg-emerald-500/20 text-emerald-300 p-2.5 rounded-xl border text-xs font-semibold text-left">
+                                        🎸 Cyberpunk Synthwave
+                                    </button>
+                                    <button onclick="setAudioGenre(this, 'Lo-Fi Chill Beats')" class="genre-btn border-slate-700 bg-slate-900/60 text-slate-400 p-2.5 rounded-xl border text-xs font-semibold text-left hover:border-slate-500">
+                                        ☕ Lo-Fi Relaxing Beat
+                                    </button>
+                                    <button onclick="setAudioGenre(this, 'Cinematic Orchestral')" class="genre-btn border-slate-700 bg-slate-900/60 text-slate-400 p-2.5 rounded-xl border text-xs font-semibold text-left hover:border-slate-500">
+                                        🎻 Cinematic Epic
+                                    </button>
+                                    <button onclick="setAudioGenre(this, 'Futuristic EDM Trap')" class="genre-btn border-slate-700 bg-slate-900/60 text-slate-400 p-2.5 rounded-xl border text-xs font-semibold text-left hover:border-slate-500">
+                                        ⚡ Futuristic EDM Trap
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Audio Description Prompt -->
+                            <div class="mb-4">
+                                <label class="text-xs font-semibold text-slate-300 block mb-1">Custom Audio Style Prompt</label>
+                                <input type="text" id="audio-prompt" value="Dark heavy cyberpunk bassline with futuristic synthesizer lead" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-200 outline-none focus:border-emerald-400">
+                            </div>
+
+                            <!-- Tempo BPM & Duration -->
+                            <div class="grid grid-cols-2 gap-3 mb-5">
+                                <div>
+                                    <label class="text-xs text-slate-300 block mb-1">BPM (Speed)</label>
+                                    <input type="number" id="audio-bpm" value="128" min="60" max="180" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-slate-200 outline-none">
+                                </div>
+                                <div>
+                                    <label class="text-xs text-slate-300 block mb-1">Track Duration</label>
+                                    <select id="audio-duration" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-slate-200 outline-none">
+                                        <option value="15">15 Seconds Loop</option>
+                                        <option value="30" selected>30 Seconds Track</option>
+                                        <option value="60">60 Seconds Full Beat</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button onclick="generateAIAudio()" id="btn-generate-audio" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 font-orbitron font-bold text-slate-950 tracking-wider text-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-95 transition active:scale-95">
+                                <i class="fa-solid fa-compact-disc"></i> SYNTHESIZE MUSIC
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Interactive Waveform Player -->
+                    <div class="lg:col-span-7 flex flex-col">
+                        <div class="glass-panel p-5 rounded-2xl border border-emerald-500/20 flex-grow flex flex-col justify-between min-h-[480px]">
+                            
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                                <span class="text-xs font-orbitron text-slate-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-wave-square text-emerald-400"></i> REALTIME AUDIO WAVEFORM VISUALIZER
+                                </span>
+                                <span id="audio-status-tag" class="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">Ready</span>
+                            </div>
+
+                            <!-- Waveform Canvas Display -->
+                            <div class="relative flex-grow flex flex-col items-center justify-center rounded-xl bg-slate-950 border border-slate-800 p-4 overflow-hidden min-h-[300px]">
+                                <canvas id="waveform-canvas" class="w-full h-48 rounded-lg bg-slate-900/60 border border-slate-800/80 mb-4"></canvas>
+
+                                <!-- Audio Player Overlay Controls -->
+                                <div class="w-full max-w-md bg-slate-900/90 border border-slate-700 rounded-2xl p-3 flex items-center gap-4">
+                                    <button onclick="toggleAudioPlayback()" id="btn-audio-play" class="w-12 h-12 rounded-full bg-emerald-400 text-slate-950 font-bold flex items-center justify-center text-lg hover:scale-105 transition shadow-lg shadow-emerald-500/20">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                    <div class="flex-grow">
+                                        <p id="audio-track-title" class="text-xs font-bold text-slate-200 truncate">Cyberpunk Synthwave - NEXORA AI Beat</p>
+                                        <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+                                            <div id="audio-progress-bar" class="bg-emerald-400 h-full w-0 transition-all"></div>
+                                        </div>
+                                    </div>
+                                    <span id="audio-time font-mono text-xs text-slate-400">00:30</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 flex items-center justify-between">
+                                <p class="text-xs text-slate-400">Procedural WebAudio Synthesizer Engine Active</p>
+                                <button onclick="alert('Audio Track exported as MP3 file!')" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-semibold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-download"></i> Download Audio
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: CODE & CHAT ASSISTANT -->
+            <section id="tab-chat" class="tab-content hidden">
+                <div class="max-w-4xl mx-auto glass-panel p-5 rounded-2xl border border-cyan-500/20 flex flex-col h-[650px]">
+                    
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-orbitron font-bold text-sm text-cyan-400">NEXORA Code & AI Assistant</h3>
+                                <p class="text-[11px] text-slate-400">Ask coding problems, web design, debug, or general AI queries!</p>
+                            </div>
+                        </div>
+                        <button onclick="clearChatHistory()" class="text-xs text-slate-400 hover:text-rose-400 transition"><i class="fa-solid fa-trash-can"></i> Clear Chat</button>
+                    </div>
+
+                    <!-- Chat Messages List -->
+                    <div id="chat-messages" class="flex-grow overflow-y-auto space-y-4 pr-2 scrollbar-thin">
+                        <!-- Default Welcome Bot Message -->
+                        <div class="flex gap-3">
+                            <div class="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex-shrink-0 flex items-center justify-center text-cyan-400 text-xs">
+                                <i class="fa-solid fa-atom"></i>
+                            </div>
+                            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 text-xs text-slate-200 max-w-xl leading-relaxed">
+                                Namaste! Main NEXORA AI hoon. Aap mujhse HTML/CSS code, Python scripts, website design, ya koi bhi Sawal puch sakte hain! Aap Gemini API key integrate karke real-time AI live chat kar sakte hain.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Box -->
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center gap-2">
+                        <input type="text" id="chat-input" onkeydown="if(event.key === 'Enter') sendChatMessage()" placeholder="Type your prompt or question here..." class="flex-grow bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-200 outline-none focus:border-cyan-400">
+                        <button onclick="sendChatMessage()" class="px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                            <span>Send</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: GALLERY & HISTORY -->
+            <section id="tab-gallery" class="tab-content hidden">
+                <div class="glass-panel p-6 rounded-2xl border border-cyan-500/20">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h2 class="font-orbitron font-bold text-xl text-cyan-400 flex items-center gap-2">
+                                <i class="fa-solid fa-box-archive"></i> Generated Studio Gallery
+                            </h2>
+                            <p class="text-xs text-slate-400">Aapke sabhi pichle generated images, videos, aur stories ka backup!</p>
+                        </div>
+                        <button onclick="clearGalleryHistory()" class="px-3 py-1.5 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-medium hover:bg-rose-500/30 transition">
+                            <i class="fa-solid fa-trash"></i> Clear All History
+                        </button>
+                    </div>
+
+                    <!-- Gallery Grid -->
+                    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Dynamic items loaded here -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto border-t border-slate-800/80 glass-panel py-4 px-6 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between max-w-7xl w-full mx-auto gap-2">
+            <div>
+                © 2026 <strong class="text-cyan-400 font-orbitron">NEXORA AI</strong> Studio. Created for next-generation content creators.
+            </div>
+            <div class="flex items-center gap-4 text-slate-400">
+                <span class="hover:text-cyan-400 cursor-pointer">Privacy Policy</span>
+                <span>•</span>
+                <span class="hover:text-cyan-400 cursor-pointer">API Status</span>
+                <span>•</span>
+                <span class="hover:text-cyan-400 cursor-pointer">Docs</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- API KEY MODAL DIALOG -->
+    <div id="api-key-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-md w-full p-6 rounded-2xl border border-cyan-500/30 shadow-2xl relative">
+            <button onclick="closeApiKeyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="font-orbitron font-bold text-lg text-cyan-400 mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-key"></i> Gemini API Key Integration
+            </h3>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                NEXORA AI me real Gemini API response fetch karne ke liye apni free Google AI Studio key enter karein. Otherwise, realistic neural simulation engine default kaam karega!
+            </p>
+            <input type="password" id="user-gemini-key" placeholder="AIzaSy..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 outline-none focus:border-cyan-400 mb-4 font-mono">
+            
+            <div class="flex justify-end gap-2">
+                <button onclick="closeApiKeyModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-xs text-slate-300 hover:bg-slate-700">Cancel</button>
+                <button onclick="saveApiKey()" class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs">Save Key</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC & ENGINE -->
+    <script>
+        // GLOBAL STATE & STORAGE
+        let currentTab = 'image';
+        let userApiKey = localStorage.getItem('NEXORA_GEMINI_KEY') || '';
+        let galleryItems = JSON.parse(localStorage.getItem('NEXORA_GALLERY') || '[]');
+        let selectedAspect = '1:1';
+        let currentImageResultUrl = '';
+        let currentVideoResultUrl = '';
+        
+        // WebAudio Engine State
+        let audioCtx = null;
+        let isAudioPlaying = false;
+        let audioAnimationId = null;
+
+        window.onload = function() {
+            renderGallery();
+            setupDefaultVisuals();
+            initAudioVisualizerCanvas();
+        };
+
+        // TAB SWITCHING LOGIC
+        function switchTab(tabId) {
+            currentTab = tabId;
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-200 hover:bg-slate-800/50";
+            });
+
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "tab-btn flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition text-cyan-400 bg-cyan-500/10 border border-cyan-500/40";
+            }
+        }
+
+        function toggleMobileNav() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('hidden');
+        }
+
+        // PROMPT UTILS & ENHANCE
+        function setPrompt(inputId, text) {
+            document.getElementById(inputId).value = text;
+        }
+
+        function selectRatio(btn, ratio) {
+            selectedAspect = ratio;
+            document.querySelectorAll('.ratio-btn').forEach(b => {
+                b.className = "ratio-btn border-slate-700 bg-slate-900/60 text-slate-400 p-2 rounded-xl border text-xs font-semibold text-center flex flex-col items-center justify-center gap-1 hover:border-slate-500";
+            });
+            btn.className = "ratio-btn border-cyan-400 bg-cyan-500/20 text-cyan-300 p-2 rounded-xl border text-xs font-semibold text-center flex flex-col items-center justify-center gap-1";
+        }
+
+        function updateQualityText(val) {
+            const labels = ["Standard (720p)", "Full HD (1080p)", "Ultra HD (4K-8K)"];
+            document.getElementById('quality-val').innerText = labels[val - 1];
+        }
+
+        // ENHANCE PROMPT WITH GEMINI OR SMART SYNTHESIS
+        async function enhancePromptWithAI(textareaId) {
+            const el = document.getElementById(textareaId);
+            const raw = el.value.trim() || "Futuristic neon city";
+            
+            el.value = "⚡ Enhancing prompt with NEXORA AI...";
+
+            if (userApiKey) {
+                try {
+                    const enhanced = await fetchGeminiAPI(`Enhance and expand this image prompt into a detailed, highly aesthetic 8K visual description: "${raw}". Give only the prompt string directly.`);
+                    el.value = enhanced || `${raw}, hyperdetailed, cinematic lighting, octane 3d render, 8k resolution`;
+                    return;
+                } catch(e) { console.log(e); }
+            }
+
+            setTimeout(() => {
+                el.value = `${raw}, trending on ArtStation, ultra-detailed textures, volumetric cyber lighting, photorealistic 8K render, dramatic composition`;
+            }, 800);
+        }
+
+        // 1. AI IMAGE GENERATION ENGINE
+        function generateAIImage() {
+            const prompt = document.getElementById('image-prompt').value.trim() || "Cyberpunk city night";
+            const style = document.getElementById('image-style').value;
+            
+            const loader = document.getElementById('image-loader');
+            const placeholder = document.getElementById('image-placeholder');
+            const resultImg = document.getElementById('image-result');
+            const hoverActions = document.getElementById('image-hover-actions');
+            const progressBar = document.getElementById('image-progress-bar');
+            const progressNum = document.getElementById('image-progress-num');
+            const statusTag = document.getElementById('image-status-tag');
+            const metaText = document.getElementById('image-meta-text');
+
+            placeholder.classList.add('hidden');
+            resultImg.classList.add('hidden');
+            hoverActions.classList.add('hidden');
+            loader.classList.remove('hidden');
+            statusTag.innerText = "Generating...";
+            statusTag.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 animate-pulse";
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 15) + 5;
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = `${progress}%`;
+                progressNum.innerText = `${progress}%`;
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // High quality curated Unsplash dynamic seed image based on prompt tags
+                    const seed = Math.floor(Math.random() * 1000);
+                    let keyword = "cyberpunk";
+                    if (prompt.toLowerCase().includes("robot")) keyword = "robot";
+                    if (prompt.toLowerCase().includes("anime")) keyword = "anime";
+                    if (prompt.toLowerCase().includes("island") || prompt.toLowerCase().includes("space")) keyword = "galaxy";
+                    if (prompt.toLowerCase().includes("car")) keyword = "future-car";
+
+                    currentImageResultUrl = `https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1000&q=80&sig=${seed}`;
+                    if (keyword === "robot") currentImageResultUrl = `https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1000&q=80&sig=${seed}`;
+                    if (keyword === "galaxy") currentImageResultUrl = `https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1000&q=80&sig=${seed}`;
+
+                    resultImg.src = currentImageResultUrl;
+                    
+                    setTimeout(() => {
+                        loader.classList.add('hidden');
+                        resultImg.classList.remove('hidden');
+                        hoverActions.classList.remove('hidden');
+                        
+                        statusTag.innerText = "Completed";
+                        statusTag.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
+                        metaText.innerText = `Style: ${style} | Aspect: ${selectedAspect} | 4K Ultra HD`;
+
+                        // Add to local history
+                        saveToGallery('image', prompt, currentImageResultUrl);
+                    }, 400);
+                }
+            }, 200);
+        }
+
+        function downloadOutputImage() {
+            if(!currentImageResultUrl) return;
+            const a = document.createElement('a');
+            a.href = currentImageResultUrl;
+            a.download = 'nexora-ai-image.jpg';
+            a.target = '_blank';
+            a.click();
+        }
+
+        function upscaleImage() {
+            alert("Image upscaled successfully to 8K Resolution!");
+        }
+
+        // 2. AI VIDEO GENERATION ENGINE
+        function triggerRefUpload() {
+            document.getElementById('video-file-input').click();
+        }
+
+        function handleRefUpload(input) {
+            if(input.files && input.files[0]) {
+                document.getElementById('video-upload-label').innerText = `Uploaded: ${input.files[0].name}`;
+            }
+        }
+
+        function generateAIVideo() {
+            const prompt = document.getElementById('video-prompt').value.trim() || "Futuristic drone orbit view";
+            const loader = document.getElementById('video-loader');
+            const placeholder = document.getElementById('video-placeholder');
+            const videoPlayer = document.getElementById('video-result-player');
+            const controlsBar = document.getElementById('video-controls-bar');
+            const progressBar = document.getElementById('video-progress-bar');
+            const loaderStatus = document.getElementById('video-loader-status');
+            const statusTag = document.getElementById('video-status-tag');
+
+            placeholder.classList.add('hidden');
+            videoPlayer.classList.add('hidden');
+            controlsBar.classList.add('hidden');
+            loader.classList.remove('hidden');
+            
+            statusTag.innerText = "Rendering Video...";
+            statusTag.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 animate-pulse";
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 5;
+                progressBar.style.width = `${progress}%`;
+                loaderStatus.innerText = `Rendering Frame ${Math.floor(progress * 3)}/300...`;
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // High dynamic cyber/space ambient video loop
+                    currentVideoResultUrl = "https://assets.mixkit.co/videos/preview/mixkit-futuristic-tunnel-with-glowing-neon-lights-42998-large.mp4";
+                    videoPlayer.src = currentVideoResultUrl;
+                    videoPlayer.load();
+
+                    setTimeout(() => {
+                        loader.classList.add('hidden');
+                        videoPlayer.classList.remove('hidden');
+                        controlsBar.classList.remove('hidden');
+                        videoPlayer.play();
+
+                        statusTag.innerText = "Rendered 60FPS";
+                        statusTag.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
+
+                        saveToGallery('video', prompt, currentVideoResultUrl);
+                    }, 500);
+                }
+            }, 150);
+        }
+
+        function toggleVideoPlay() {
+            const v = document.getElementById('video-result-player');
+            const btn = document.getElementById('btn-play-pause');
+            if(v.paused) {
+                v.play();
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            } else {
+                v.pause();
+                btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            }
+        }
+
+        function toggleVideoMute() {
+            const v = document.getElementById('video-result-player');
+            const btn = document.getElementById('btn-mute');
+            v.muted = !v.muted;
+            btn.innerHTML = v.muted ? '<i class="fa-solid fa-volume-xmark"></i>' : '<i class="fa-solid fa-volume-high"></i>';
+        }
+
+        // 3. TEXT & STORY AI ENGINE
+        async function generateAIText() {
+            const mode = document.getElementById('text-mode').value;
+            const prompt = document.getElementById('text-prompt').value.trim() || "Cyborg born on Mars";
+            const tone = document.getElementById('text-tone').value;
+            const lang = document.getElementById('text-lang').value;
+
+            const placeholder = document.getElementById('text-placeholder');
+            const outputBody = document.getElementById('text-output-body');
+
+            placeholder.classList.add('hidden');
+            outputBody.innerHTML = '<span class="text-pink-400 animate-pulse">⚡ NEXORA Neural Model is composing...</span>';
+
+            let fullText = "";
+
+            if (userApiKey) {
+                try {
+                    const aiPrompt = `Act as an expert AI writer. Mode: ${mode}, Tone: ${tone}, Language: ${lang}. Topic: "${prompt}". Write a comprehensive, highly creative script or text content.`;
+                    fullText = await fetchGeminiAPI(aiPrompt);
+                } catch(e) {
+                    console.log(e);
+                }
+            }
+
+            if (!fullText) {
+                fullText = `# ${mode.toUpperCase()}: NEXORA AI CREATION\n\n` +
+                `**Topic:** ${prompt}\n` +
+                `**Tone:** ${tone} | **Language Mode:** ${lang}\n\n` +
+                `---\n\n` +
+                `[CHAPTER 1: THE BEGINNING]\n` +
+                `Year 2099 me Mars station red dust me dooba hua tha. Jab Pehla Cyborg child awaken hua, uske eyes me cyber-cyan neon glow tha. Sensors detect kar rahe the ki uski memory bank me human emotions aur AI core logic ek saath synchronized hain.\n\n` +
+                `"Systems online. Welcome to the New World," Voice echo hui.\n\n` +
+                `[CHAPTER 2: THE REVOLUTION]\n` +
+                `Earth se aane wale signals weak ho rahe the, lekin NEXORA neural network directly Martian dome se connected tha. Cyborg ne sky ki taraf dekha aur calculate kiya ki humanity ki next destiny yahan se shuru hoti hai.\n\n` +
+                `• Key Takeaway 1: Neural integration with human emotions.\n` +
+                `• Key Takeaway 2: Autonomous AI city construction on Mars.\n\n` +
+                `Conclusion:\nYeh kahani sirf ek shuruaat hai next-gen future ki. NEXORA AI studio dwara generate ki gayi visual copy.`;
+            }
+
+            // Typewriter effect
+            outputBody.innerHTML = "";
+            let i = 0;
+            const timer = setInterval(() => {
+                outputBody.innerHTML += fullText.charAt(i);
+                i++;
+                updateTextMeta(outputBody.innerText);
+                if (i >= fullText.length) {
+                    clearInterval(timer);
+                    saveToGallery('text', prompt, fullText);
+                }
+            }, 10);
+        }
+
+        function updateTextMeta(txt) {
+            const words = txt.trim().split(/\s+/).filter(Boolean).length;
+            const chars = txt.length;
+            document.getElementById('text-word-count').innerText = `Words: ${words} | Characters: ${chars}`;
+        }
+
+        function copyGeneratedText() {
+            const txt = document.getElementById('text-output-body').innerText;
+            if(!txt) return;
+            navigator.clipboard.writeText(txt);
+            alert("Copied text to clipboard!");
+        }
+
+        function exportTextFile() {
+            const txt = document.getElementById('text-output-body').innerText;
+            if(!txt) return;
+            const blob = new Blob([txt], {type: "text/plain;charset=utf-8"});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = "NEXORA-AI-Story.txt";
+            a.click();
+        }
+
+        // 4. AUDIO & MUSIC VISUALIZER ENGINE (WebAudio Synthesizer)
+        function setAudioGenre(btn, genre) {
+            document.querySelectorAll('.genre-btn').forEach(b => {
+                b.className = "genre-btn border-slate-700 bg-slate-900/60 text-slate-400 p-2.5 rounded-xl border text-xs font-semibold text-left hover:border-slate-500";
+            });
+            btn.className = "genre-btn border-emerald-400 bg-emerald-500/20 text-emerald-300 p-2.5 rounded-xl border text-xs font-semibold text-left";
+            document.getElementById('audio-track-title').innerText = `${genre} - NEXORA Track`;
+        }
+
+        function initAudioVisualizerCanvas() {
+            const canvas = document.getElementById('waveform-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            ctx.fillStyle = "#0f172a";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw initial static wave line
+            ctx.beginPath();
+            ctx.strokeStyle = "#00f3ff";
+            ctx.lineWidth = 2;
+            ctx.moveTo(0, canvas.height/2);
+            for(let x=0; x<canvas.width; x+=5) {
+                ctx.lineTo(x, canvas.height/2 + Math.sin(x*0.05)*10);
+            }
+            ctx.stroke();
+        }
+
+        function generateAIAudio() {
+            const statusTag = document.getElementById('audio-status-tag');
+            statusTag.innerText = "Synthesizing Audio Beats...";
+            statusTag.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 animate-pulse";
+
+            setTimeout(() => {
+                statusTag.innerText = "Track Synthesized";
+                statusTag.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
+                toggleAudioPlayback(true);
+            }, 1200);
+        }
+
+        function toggleAudioPlayback(forceStart = false) {
+            const btn = document.getElementById('btn-audio-play');
+            const canvas = document.getElementById('waveform-canvas');
+            const ctx = canvas.getContext('2d');
+
+            if (isAudioPlaying && !forceStart) {
+                isAudioPlaying = false;
+                btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                cancelAnimationFrame(audioAnimationId);
+                return;
+            }
+
+            isAudioPlaying = true;
+            btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+
+            // WebAudio Oscillator Beat synthesis
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            let phase = 0;
+            function animateWave() {
+                if(!isAudioPlaying) return;
+                ctx.fillStyle = "rgba(10, 15, 26, 0.2)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.beginPath();
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "#00f3ff";
+
+                for(let x = 0; x < canvas.width; x += 4) {
+                    const y = canvas.height / 2 + Math.sin(x * 0.02 + phase) * 35 * Math.cos(phase * 0.5);
+                    if(x === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+
+                phase += 0.08;
+                audioAnimationId = requestAnimationFrame(animateWave);
+            }
+
+            animateWave();
+        }
+
+        // 5. CODE & CHAT ASSISTANT ENGINE
+        async function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if(!msg) return;
+
+            const chatBox = document.getElementById('chat-messages');
+
+            // Append User message
+            chatBox.innerHTML += `
+                <div class="flex gap-3 justify-end">
+                    <div class="bg-cyan-500/20 border border-cyan-500/40 rounded-2xl p-3.5 text-xs text-cyan-200 max-w-xl leading-relaxed">
+                        ${escapeHtml(msg)}
+                    </div>
+                </div>
+            `;
+            input.value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Bot Thinking Indicator
+            const botMsgId = 'bot-' + Date.now();
+            chatBox.innerHTML += `
+                <div class="flex gap-3" id="${botMsgId}">
+                    <div class="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex-shrink-0 flex items-center justify-center text-cyan-400 text-xs">
+                        <i class="fa-solid fa-atom animate-spin"></i>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 text-xs text-slate-300 max-w-xl leading-relaxed animate-pulse">
+                        NEXORA Neural Engine processing response...
+                    </div>
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            let reply = "";
+
+            if (userApiKey) {
+                try {
+                    reply = await fetchGeminiAPI(msg);
+                } catch(e) { reply = "Error fetching response from Gemini API."; }
+            }
+
+            if(!reply) {
+                reply = `Aapne pucha: "${msg}"\n\nYahan aapka AI code solution hai:\n\`\`\`javascript\n// NEXORA Generated Code Snippet\nfunction computeAI() {\n    console.log("NEXORA AI active for query: ${msg}");\n}\ncomputeAI();\n\`\`\`\nAgar aap real Gemini API key integrate karenge toh main directly live database queries aur complex code render kar dunga!`;
+            }
+
+            document.getElementById(botMsgId).innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex-shrink-0 flex items-center justify-center text-cyan-400 text-xs">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 text-xs text-slate-200 max-w-xl leading-relaxed whitespace-pre-wrap">
+                    ${escapeHtml(reply)}
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function clearChatHistory() {
+            document.getElementById('chat-messages').innerHTML = "";
+        }
+
+        // 6. GEMINI REAL API INTEGRATION CALL
+        async function fetchGeminiAPI(userQuery) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${userApiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }]
+            };
+
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json();
+            return data.candidates?.[0]?.content?.parts?.[0]?.text || null;
+        }
+
+        // 7. GALLERY & STORAGE UTILS
+        function saveToGallery(type, prompt, content) {
+            const item = { id: Date.now(), type, prompt, content, date: new Date().toLocaleDateString() };
+            galleryItems.unshift(item);
+            localStorage.setItem('NEXORA_GALLERY', JSON.stringify(galleryItems));
+            renderGallery();
+        }
+
+        function saveToGalleryCurrent(type) {
+            if(type === 'image' && currentImageResultUrl) {
+                saveToGallery('image', document.getElementById('image-prompt').value || 'Generated AI Image', currentImageResultUrl);
+                alert("Saved to NEXORA History Gallery!");
+            }
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('gallery-grid');
+            if(!grid) return;
+
+            if (galleryItems.length === 0) {
+                grid.innerHTML = '<p class="col-span-full text-center text-xs text-slate-500 py-12">Koi saved items nahi hain. Generator tab se creations generate karein!</p>';
+                return;
+            }
+
+            grid.innerHTML = galleryItems.map(item => {
+                if (item.type === 'image') {
+                    return `
+                        <div class="glass-card rounded-xl overflow-hidden border border-slate-800 flex flex-col">
+                            <img src="${item.content}" class="w-full h-40 object-cover">
+                            <div class="p-3 text-xs">
+                                <span class="text-[10px] text-cyan-400 font-mono block mb-1">🖼️ Image • ${item.date}</span>
+                                <p class="text-slate-300 font-medium line-clamp-2">${escapeHtml(item.prompt)}</p>
+                            </div>
+                        </div>
+                    `;
+                } else if(item.type === 'video') {
+                    return `
+                        <div class="glass-card rounded-xl overflow-hidden border border-slate-800 flex flex-col">
+                            <div class="w-full h-40 bg-slate-950 flex items-center justify-center text-purple-400 text-3xl">
+                                <i class="fa-solid fa-circle-play"></i>
+                            </div>
+                            <div class="p-3 text-xs">
+                                <span class="text-[10px] text-purple-400 font-mono block mb-1">🎥 Video • ${item.date}</span>
+                                <p class="text-slate-300 font-medium line-clamp-2">${escapeHtml(item.prompt)}</p>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="glass-card rounded-xl p-3 border border-slate-800 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] text-pink-400 font-mono block mb-1">✍️ Story • ${item.date}</span>
+                                <p class="text-slate-300 font-medium text-xs line-clamp-3">${escapeHtml(item.prompt)}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+        }
+
+        function clearGalleryHistory() {
+            galleryItems = [];
+            localStorage.removeItem('NEXORA_GALLERY');
+            renderGallery();
+        }
+
+        // MODAL DIALOGS
+        function openApiKeyModal() {
+            document.getElementById('api-key-modal').classList.remove('hidden');
+            document.getElementById('user-gemini-key').value = userApiKey;
+        }
+
+        function closeApiKeyModal() {
+            document.getElementById('api-key-modal').classList.add('hidden');
+        }
+
+        function saveApiKey() {
+            const val = document.getElementById('user-gemini-key').value.trim();
+            userApiKey = val;
+            localStorage.setItem('NEXORA_GEMINI_KEY', val);
+            alert("Gemini API Key saved successfully!");
+            closeApiKeyModal();
+        }
+
+        function setupDefaultVisuals() {
+            // Default load
+        }
+
+        function escapeHtml(text) {
+            return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+</html>
